@@ -1,26 +1,25 @@
 name: Deploy React App
 
 on: 
-	push:
-		branches:
-			- "main"
-			
+ push:
+   branches:
+     - "main"
 jobs:
-	deploy:
-		runs-on: ubuntu-latest
-		steps:
-			- name: checkout
-			  uses: action/checkout@v2
-			- name: NPM install
-			  run: npm cli
-			  working-directory: ./react-first-app
-			- name: Build app
-			  run: npm run build
-			  working-directory: ./react-first-app
-			- name: deploy
-			  uses: talhahashmi/github-pages-deploy-action@4.1.5
-			  with:
-				branch: react-first-app
-				folder: react-first-app/build
+  deploy:
+    runs-on: ubuntu-latest
+	steps:
+	- name: checkout
+	  uses: action/checkout@v2
+ 	- name: NPM install
+	  run: npm ci
+	  working-directory: ./react-first-app
+	- name: Build app
+	  run: npm run build
+	  working-directory: ./react-first-app
+	- name: deploy
+	  uses: talhahashmi/github-pages-deploy-action@4.1.5
+	  with:
+	  branch: react-first-app
+	  folder: react-first-app/build
 				
 			  
